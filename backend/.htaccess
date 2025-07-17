@@ -1,0 +1,11 @@
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<FilesMatch "\.(sql|db)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+Options -Indexes

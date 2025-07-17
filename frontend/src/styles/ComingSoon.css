@@ -1,0 +1,230 @@
+/* ComingSoon.css */
+
+:root {
+  --primary: #e63946;
+  --secondary: #457b9d;
+  --accent: #1d3557;
+  --light: #f1faee;
+  --dark: #1d3557;
+}
+
+.coming-soon-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8edf5 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.coming-soon-content {
+  max-width: 700px;
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+  overflow: hidden;
+}
+
+.coming-soon-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animated Background */
+.animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.shape1 {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  right: -150px;
+  animation: float 20s infinite alternate ease-in-out;
+}
+
+.shape2 {
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  width: 200px;
+  height: 200px;
+  bottom: -100px;
+  left: -80px;
+  animation: float 15s infinite alternate-reverse ease-in-out;
+}
+
+.shape3 {
+  background: linear-gradient(225deg, var(--primary), var(--accent));
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 60%;
+  animation: pulse 10s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(20px) rotate(-5deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.15;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+}
+
+.coming-soon-title {
+  font-size: 4.5rem;
+  margin-bottom: 30px;
+  font-weight: 800;
+  position: relative;
+  animation: fadeIn 1.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  position: relative;
+}
+
+.gradient-text::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  animation: line-animation 2s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes line-animation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.coming-soon-description {
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.7;
+  animation: fadeIn 1.5s ease-in-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+/* Footer Styles - Kept exactly as original */
+.coming-soon-footer {
+  color: #777;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.coming-soon-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.coming-soon-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .coming-soon-title {
+    font-size: 3.5rem;
+  }
+  
+  .coming-soon-description {
+    font-size: 1.1rem;
+  }
+  
+  .coming-soon-content {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .coming-soon-content {
+    padding: 25px;
+  }
+  
+  .coming-soon-title {
+    font-size: 2.5rem;
+  }
+  
+  .shape1 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .shape2 {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .shape3 {
+    width: 100px;
+    height: 100px;
+  }
+}

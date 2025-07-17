@@ -1,0 +1,315 @@
+/* SearchFilter.css - Updated with improved responsive sizing */
+.property-filters {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 0 auto 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  max-width: 1200px;
+  width: 95%;
+}
+
+/* Row styling */
+.filter-row {
+  margin-bottom: 16px;
+}
+
+.filter-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Search input - First row */
+.search-input {
+  width: 100%;
+  padding: 0 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 15px;
+  height: 46px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #e63946;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Horizontal filters container - Second row */
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Group for all filters */
+.filters-group {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+/* Basic filter field */
+.filter-field {
+  flex: 1;
+  min-width: 100px;
+  position: relative;
+}
+
+/* Filter select (standard dropdown) */
+.filter-select {
+  width: 100%;
+  padding: 0 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 14px;
+  height: 46px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 30px;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #e63946;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+}
+
+/* Input field styling - Combined input and dropdown with same styling */
+.price-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.price-input {
+  padding-right: 30px; /* Make room for dropdown arrow */
+  width: 100%;
+}
+
+.price-select {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Buttons styling */
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.filter-btn {
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  height: 46px;
+  min-width: 100px;
+}
+
+.apply-btn {
+  background: linear-gradient(135deg, #e63946 0%, #457b9d 100%);
+  color: white;
+}
+
+.apply-btn:hover {
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.25);
+}
+
+.clear-btn {
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.clear-btn:hover {
+  background-color: #f1f5f9;
+}
+
+/* Results count */
+.properties-count {
+  text-align: center;
+  font-size: 15px;
+  color: #64748b;
+  margin: 20px 0 24px;
+  font-weight: 500;
+}
+
+/* Responsive styles - Improved breakpoints */
+@media (max-width: 1400px) {
+  .filter-field {
+    min-width: 120px;
+  }
+  
+  .filter-btn {
+    min-width: 90px;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .filters-group {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+  
+  .filter-field {
+    flex: 1 0 calc(33.333% - 7px);
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .filters-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .filters-group {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 12px;
+    row-gap: 12px;
+  }
+  
+  .filter-field {
+    flex: 1 0 calc(50% - 6px);
+    min-width: 160px;
+  }
+  
+  .filter-buttons {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .property-filters {
+    padding: 18px;
+    width: 98%;
+  }
+  
+  .search-input {
+    height: 44px;
+    padding: 0 16px;
+  }
+  
+  .filter-select, .price-input {
+    height: 44px;
+    font-size: 13px;
+  }
+  
+  .filter-field {
+    flex: 1 0 calc(50% - 6px);
+    min-width: 140px;
+  }
+  
+  .filter-buttons {
+    justify-content: stretch;
+    gap: 10px;
+  }
+  
+  .filter-btn {
+    flex: 1;
+    min-width: 0;
+    height: 44px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .property-filters {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .filter-row {
+    margin-bottom: 14px;
+  }
+  
+  .filters-group {
+    gap: 10px;
+    row-gap: 10px;
+  }
+  
+  .filter-field {
+    flex: 1 0 100%;
+    min-width: 0;
+  }
+  
+  .search-input {
+    height: 42px;
+    font-size: 14px;
+    padding: 0 14px;
+  }
+  
+  .filter-select, .price-input {
+    height: 42px;
+    font-size: 13px;
+    padding: 0 10px;
+  }
+  
+  .filter-btn {
+    height: 42px;
+    font-size: 13px;
+    padding: 0 14px;
+  }
+  
+  .properties-count {
+    margin: 16px 0 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .property-filters {
+    padding: 14px;
+    width: 99%;
+    border-radius: 10px;
+  }
+  
+  .search-input {
+    height: 40px;
+    font-size: 14px;
+    padding: 0 12px;
+  }
+  
+  .filter-select, .price-input {
+    height: 40px;
+    font-size: 12px;
+    padding: 0 8px;
+    padding-right: 28px;
+  }
+  
+  .filter-btn {
+    height: 40px;
+    font-size: 12px;
+    padding: 0 12px;
+  }
+  
+  .filter-buttons {
+    gap: 8px;
+  }
+}

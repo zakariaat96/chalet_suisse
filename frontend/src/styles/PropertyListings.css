@@ -1,0 +1,244 @@
+/* PropertyListings.css - Modern styling for property listings section */
+
+.property-listings {
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, rgba(245, 247, 250, 0.8) 0%, rgba(255, 255, 255, 1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative Elements */
+.property-listings::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 10% 20%, rgba(69, 123, 157, 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 90% 80%, rgba(230, 57, 70, 0.05) 0%, transparent 50%);
+  z-index: 0;
+}
+
+/* Header Section */
+.listings-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.listings-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text-dark, #333333);
+  background: linear-gradient(135deg, var(--primary, #e63946) 0%, var(--secondary, #457b9d) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  text-decoration: none; /* Remove any underline */
+  border: none; /* Remove any border */
+  outline: none; /* Remove any outline */
+}
+
+.listings-title::after,
+.listings-title::before {
+  display: none; /* Remove any pseudo-element decorations */
+}
+
+.listings-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-medium, #666666);
+  line-height: 1.6;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Properties Container & Grid */
+.properties-container {
+  position: relative;
+  margin: 0 auto;
+  max-width: var(--max-width, 1280px);
+  padding: 1rem 0;
+  z-index: 1;
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.properties-grid > * {
+  height: 100%;
+}
+
+/* View All Button */
+.view-all-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.view-all-btn {
+  padding: 0.65rem 1.75rem;
+  background: linear-gradient(135deg, var(--primary, #e63946) 0%, var(--secondary, #457b9d) 100%);
+  color: var(--text-light, #ffffff);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.view-all-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
+  color: var(--text-light, #ffffff);
+}
+
+.view-all-btn:active {
+  transform: translateY(0);
+}
+
+.view-all-btn svg {
+  font-size: 1.1rem;
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.1rem;
+  color: var(--text-medium, #666666);
+  position: relative;
+}
+
+.loading::after {
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid rgba(230, 57, 70, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary, #e63946);
+  animation: spinner 0.8s linear infinite;
+  position: absolute;
+  top: calc(50% - 1rem);
+  left: calc(50% + 100px);
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error State */
+.error {
+  padding: 2rem;
+  background-color: rgba(230, 57, 70, 0.1);
+  border-left: 4px solid var(--primary, #e63946);
+  color: var(--text-dark, #333333);
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* No Results State */
+.no-results {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  color: var(--text-medium, #666666);
+  text-align: center;
+  background-color: rgba(69, 123, 157, 0.05);
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .properties-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .listings-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .property-listings {
+    padding: 3rem 1.5rem;
+  }
+  
+  .properties-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .listings-title {
+    font-size: 2rem;
+  }
+  
+  .listings-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .properties-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .listings-title {
+    font-size: 1.8rem;
+  }
+  
+  .listings-subtitle {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .property-listings {
+    padding: 2rem 1rem;
+  }
+  
+  .properties-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .listings-title {
+    font-size: 1.6rem;
+  }
+  
+  .listings-header {
+    margin-bottom: 2rem;
+  }
+  
+  .view-all-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
